@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1"/>
+<title>Insert title here</title>
+</head>
+<body>
+
+<section id="choixPages">
+<table>
+<tr><td><a th:href="${linkNearBy}">Nearby Shops</a></td><td><a th:href="${linkLike}">My prefered shops</a></td></tr>
+</table>
+</section>
+
+<section id="listShops">
+    <table id="shopsTable"
+        class="table table-bordered"
+        th:if="${likedShops != null and not #lists.isEmpty(likedShops)}">
+        <thead>
+            <tr class="center middle">
+                <th>Name</th>
+                <th>City</th>
+                <th>Email</th>
+                <th>Picture</th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr th:each="shop : ${likedShops}">
+          <td th:text="${shop.city}">City shopping</td>
+                <td th:text="${shop.name}">Name shoping</td>
+                <td th:text="${shop.email}">Email shopping</td>
+                <td th:text="${shop.picture}">Picture shopping</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+</body>
+</html>
